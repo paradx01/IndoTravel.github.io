@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IndoTravel</title>
+    <!-- Your CSS and other external links -->
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="icon" type="image/png" href="images/logo.png">
+    <!-- ... -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.css" integrity="sha512-UTNP5BXLIptsaj5WdKFrkFov94lDx+eBvbKyoe1YAfjeRPC+gT5kyZ10kOHCfNZqEui1sxmqvodNUx3KbuYI/A==" crossorigin="anonymous"
+      referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw=="
+      crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <div class="content flex_space">
+          <div class="logo">
+            <img src="images/logo.png" alt="">
+          </div>
+          <div class="navlinks">
+            <ul id="menulist">
+              <li><a href="index.html">Home</a></li>
+              <li><a href="index.html">About</a> </li>
+              <li><a href="culture.html">Culture</a> </li>
+              <li><a href="hotel.html">Hotel</a> </li>
+              <li><a href="book.html">Book</a> </li>
+            </ul>
+            <span class="fa fa-bars" onclick="menutoggle()"></span>
+          </div>
+        </div>
+      </header>
+
+    <!-- Other sections and content -->
+
+    <!-- Include Favorite Hotels Section -->
+    <section class="favorite-hotels">
+        <div class="container top">
+          <div class="heading">
+            <h2>Favorite Hotels</h2>
+            <p>Explore our favorite hotels with complete facilities and essential information</p>
+          </div>
+          <br>
+          <div class="hotel-list">
+            <div class="hotel-item">
+                <div class="hotel-info">
+                    <img src="https://www.indonesia.travel/content/dam/indtravelrevamp/en/trip-ideas/15-hotel-terbaik-di-indonesia-untuk-staycation-bersama-keluarga/rev-bintan.jpg" alt="Hotel 1">
+                    <h3>Bintan Lagoon Resort, Lagoi</h3>
+                    <p><strong>Facilities:</strong> Swimming pool, Spa, Restaurant</p>
+                    <p><strong>Price:</strong> $40/night</p>
+                    <p><strong>Address:</strong>  Jl. Indera Segara Site A12, Sebong Lagoi, Tlk. Sebong, Kabupaten Bintan, Kepulauan Riau 29155</p>
+                    <div class="transaction">
+                        <h4>Book Now</h4>
+                        <form onsubmit="saveTransactionData(this); return false;">
+                            <label for="check-in">Check-In Date:</label>
+                            <input type="date" id="check-in" name="check-in-date">
+                            <label for="check-out">Check-Out Date:</label>
+                            <input type="date" id="check-out" name="check-out-date">
+                            <label for="guests">Number of Guests:</label>
+                            <input type="number" id="guests" name="guests" min="1" max="10">
+                            <button class="secondary-btn" type="submit" onclick="saveTransactionData('Bintan Lagoon Resort')">Book</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="hotel-item">
+                <div class="hotel-info">
+                    <img src="https://www.indonesia.travel/content/dam/indtravelrevamp/en/trip-ideas/15-hotel-terbaik-di-indonesia-untuk-staycation-bersama-keluarga/rev-ritzcarlton.jpg" alt="Hotel 2">
+                    <h3>The Ritz-Carlton, Bali</h3>
+                    <p><strong>Facilities:</strong> Gym, Bar, Free Wi-Fi</p>
+                    <p><strong>Price:</strong> $50/night</p>
+                    <p><strong>Address:</strong>  Jalan Raya Nusa Dua Selatan No.Lot 3 Sawangan Nusa Dua, Benoa, Kec. Kuta Sel., Kabupaten Badung, Bali 80363</p>
+                    <div class="transaction">
+                        <h4>Book Now</h4>
+                        <form action="/confirm_booking" method="post">
+                            <label for="check-in">Check-In Date:</label>
+                            <input type="date" id="check-in" name="check-in-date">
+                            <label for="check-out">Check-Out Date:</label>
+                            <input type="date" id="check-out" name="check-out-date">
+                            <label for="guests">Number of Guests:</label>
+                            <input type="number" id="guests" name="guests" min="1" max="10">
+                            <button class="secondary-btn" type="submit" onclick="saveTransactionData('The Ritz-Carlton')">Book</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hotel-item">
+                <div class="hotel-info">
+                    <img src="https://ik.imagekit.io/tvlk/blog/2020/01/hotel-termewah-di-Indonesia-1-Traveloka.jpg?tr=dpr-2,w-675" alt="Hotel 2">
+                    <h3>The Oberoi, Lombok</h3>
+                    <p><strong>Facilities:</strong> Gym, Bar, Free Wi-Fi</p>
+                    <p><strong>Price:</strong> $60/night</p>
+                    <p><strong>Address:</strong>  Jl. Ir. Soekarno No. 120 Batu - Indonesia</p>
+                    <div class="transaction">
+                        <h4>Book Now</h4>
+                        <form action="/confirm_booking" method="post">
+                            <label for="check-in">Check-In Date:</label>
+                            <input type="date" id="check-in" name="check-in-date">
+                            <label for="check-out">Check-Out Date:</label>
+                            <input type="date" id="check-out" name="check-out-date">
+                            <label for="guests">Number of Guests:</label>
+                            <input type="number" id="guests" name="guests" min="1" max="10">
+                            <button class="secondary-btn" type="submit" onclick="saveTransactionData('The Oberoi')">Book</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hotel-item">
+                <div class="hotel-info">
+                    <img src="https://media-cdn.tripadvisor.com/media/photo-s/13/83/04/50/tlogowangi-swimming-pool.jpg" alt="Hotel 2">
+                    <h3>Singhasari Resort, Batu</h3>
+                    <p><strong>Facilities:</strong> Gym, Bar, Free Wi-Fi</p>
+                    <p><strong>Price:</strong> $70/night</p>
+                    <p><strong>Address:</strong>  Jl. Ir. Soekarno No. 120 Batu - Indonesia</p>
+                    <div class="transaction">
+                        <h4>Book Now</h4>
+                        <form action="/confirm_booking" method="post">
+                            <label for="check-in">Check-In Date:</label>
+                            <input type="date" id="check-in" name="check-in-date">
+                            <label for="check-out">Check-Out Date:</label>
+                            <input type="date" id="check-out" name="check-out-date">
+                            <label for="guests">Number of Guests:</label>
+                            <input type="number" id="guests" name="guests" min="1" max="10">
+                            <button class="secondary-btn" type="submit" onclick="saveTransactionData('Singhasari Resort')">Book</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hotel-item">
+                <div class="hotel-info">
+                    <img src="https://th.bing.com/th/id/OIP.ySrHMPzBy6w9L418Eek_1wHaFY?w=720&h=524&rs=1&pid=ImgDetMain" alt="Hotel 2">
+                    <h3>Padma Hotel, Bandung</h3>
+                    <p><strong>Facilities:</strong> Gym, Bar, Free Wi-Fi</p>
+                    <p><strong>Price:</strong> $80/night</p>
+                    <p><strong>Address:</strong>  Jl. Ranca Bentang 56-58 Ciumbuleuit, Bandung 40142</p>
+                    <div class="transaction">
+                        <h4>Book Now</h4>
+                        <form action="/confirm_booking" method="post">
+                            <label for="check-in">Check-In Date:</label>
+                            <input type="date" id="check-in" name="check-in-date">
+                            <label for="check-out">Check-Out Date:</label>
+                            <input type="date" id="check-out" name="check-out-date">
+                            <label for="guests">Number of Guests:</label>
+                            <input type="number" id="guests" name="guests" min="1" max="10">
+                            <button class="secondary-btn" type="submit" onclick="saveTransactionData('Padma Hotel')">Book</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hotel-item">
+                <div class="hotel-info">
+                    <img src="https://ik.imagekit.io/tvlk/blog/2020/01/hotel-termewah-di-Indonesia-4-Traveloka.jpg?tr=dpr-2,w-675" alt="Hotel 2">
+                    <h3>Amanjiwo</h3>
+                    <p><strong>Facilities:</strong> Gym, Bar, Free Wi-Fi</p>
+                    <p><strong>Price:</strong> $90/night</p>
+                    <p><strong>Address:</strong>  Ds. Majaksingi Borobudur, Borobudur, Magelang, Jawa Tengah, Indonesia, 56501</p>
+                    <div class="transaction">
+                        <h4>Book Now</h4>
+                        <form action="/confirm_booking" method="post">
+                            <label for="check-in">Check-In Date:</label>
+                            <input type="date" id="check-in" name="check-in-date">
+                            <label for="check-out">Check-Out Date:</label>
+                            <input type="date" id="check-out" name="check-out-date">
+                            <label for="guests">Number of Guests:</label>
+                            <input type="number" id="guests" name="guests" min="1" max="10">
+                            <button class="secondary-btn" type="submit" onclick="saveTransactionData('Amanjiwo')">Book</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <footer>
+        <div class="container grid">
+          <div class="box">
+            <img src="images/logo.png" alt="">
+            <p>IndoTravel, a top travel website, offers seamless hotel bookings and travel facilities for tourists in Indonesia. With diverse accommodation options, from luxury hotels to budget-friendly guesthouses, users can easily find and book their ideal stay. 
+              The platform extends beyond hotels, providing additional services like car rentals and local tours for comprehensive trip planning. Emphasizing security, IndoTravel collaborates with reputable partners and employs a secure payment system. With a dedicated customer service team, the platform ensures a smooth and unforgettable travel experience for visitors exploring Indonesia.</p>
+              <div class="icon">
+                <a href="https://www.facebook.com" target="_blank">
+                    <i class="fa fa-facebook-f"></i>
+                </a>
+                <a href="https://www.instagram.com" target="_blank">
+                    <i class="fa fa-instagram"></i>
+                </a>
+                <a href="https://twitter.com" target="_blank">
+                    <i class="fa fa-twitter"></i>
+                </a>
+                <a href="https://www.youtube.com" target="_blank">
+                    <i class="fa fa-youtube"></i>
+                </a>
+            </div>
+          </div>
+  
+          <div class="box">
+      
+          </div>
+  
+          <div class="box">
+            <h2>Contact Us</h2>
+            <p>For more information contact us.
+            </p>
+            <i class="fa fa-location-dot"></i>
+            <label>Jl. Utama No. 123, Jakarta, Indonesia</label> <br>
+            <i class="fa fa-phone"></i>
+            <label>[+62] 123 4567 890</label> <br>
+            <i class="fa fa-envelope"></i>
+            <label>info@indotravel.com</label> <br>
+          </div>
+        </div>
+      </footer>
+  
+      <div class="legal">
+        <p class="container">Copyright (c) 2023 IndoTravel All Rights Reserved.</p>
+      </div>
+
+    <!-- Your scripts -->
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+    <!-- ... -->
+    <script src="js/script.js"></script>
+    <script src="https://kit.fontawesome.com/032d11eac3.js" crossorigin="anonymous"></script>
+    <script>
+      // Function untuk menyimpan data dari div "transaction"
+      function saveTransactionData(hotelName) {
+        var checkInDate = document.getElementById("check-in").value;
+        var checkOutDate = document.getElementById("check-out").value;
+        var guests = document.getElementById("guests").value;
+
+        var transaction = {
+          hotelName: hotelName,
+          checkInDate: checkInDate,
+          checkOutDate: checkOutDate,
+          guests: guests,
+        };
+
+        // Dapatkan data transaksi yang tersimpan atau inisialisasi array kosong jika belum ada data
+        var savedTransactions = JSON.parse(localStorage.getItem("savedTransactions")) || [];
+
+        // Tambahkan data transaksi baru
+        savedTransactions.push(transaction);
+
+        // Simpan data transaksi kembali ke localStorage
+        localStorage.setItem("savedTransactions", JSON.stringify(savedTransactions));
+
+        // Tampilkan kembali data transaksi
+        displayTransactionData();
+      }
+
+      // Function untuk menampilkan data yang telah tersimpan dalam bentuk tabel HTML
+      function displayTransactionData() {
+        var savedTransactions = JSON.parse(localStorage.getItem("savedTransactions")) || [];
+        var tableBody = document.getElementById("transactionTableBody");
+
+        // Hapus isi tabel sebelum menambahkan data baru
+        tableBody.innerHTML = "";
+
+        // Loop melalui setiap transaksi dan tambahkan baris tabel
+        savedTransactions.forEach(function (transaction) {
+          var row = tableBody.insertRow();
+          var hotelCell = row.insertCell(0);
+          var checkInCell = row.insertCell(1);
+          var checkOutCell = row.insertCell(2);
+          var guestsCell = row.insertCell(3);
+
+          hotelCell.innerHTML = transaction.hotelName;
+          checkInCell.innerHTML = transaction.checkInDate;
+          checkOutCell.innerHTML = transaction.checkOutDate;
+          guestsCell.innerHTML = transaction.guests;
+        });
+      }
+
+      // Panggil function displayTransactionData saat halaman dimuat
+      document.addEventListener("DOMContentLoaded", function () {
+        saveTransactionData(hotelName, checkInDate, checkOutDate, guests);
+        displayTransactionData();
+      });
+
+    </script>
+    
+
+
+</body>
+</html>

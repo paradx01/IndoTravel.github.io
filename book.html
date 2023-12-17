@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IndoTravel</title>
+    <!-- Your CSS and other external links -->
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="icon" type="image/png" href="images/logo.png">
+    <!-- ... -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.css" integrity="sha512-UTNP5BXLIptsaj5WdKFrkFov94lDx+eBvbKyoe1YAfjeRPC+gT5kyZ10kOHCfNZqEui1sxmqvodNUx3KbuYI/A==" crossorigin="anonymous"
+      referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw=="
+      crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+    <script src="js/transactions.js"></script>
+    <script src="https://kit.fontawesome.com/032d11eac3.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <div class="content flex_space">
+          <div class="logo">
+            <img src="images/logo.png" alt="">
+          </div>
+          <div class="navlinks">
+            <ul id="menulist">
+              <li><a href="index.html">Home</a></li>
+              <li><a href="index.html">About</a> </li>
+              <li><a href="culture.html">Culture</a> </li>
+              <li><a href="hotel.html">Hotel</a> </li>
+              <li><a href="book.html">Book</a> </li>
+            </ul>
+            <span class="fa fa-bars" onclick="menutoggle()"></span>
+          </div>
+        </div>
+      </header>
+
+    <div id="booked-hotels-container" class="container">
+        <!-- Booked hotel data will be displayed here dynamically -->
+    </div>
+
+    <!-- Your other sections and content -->
+
+    <!-- Include Favorite Hotels Section -->
+    <br>
+    <br>
+    <br>
+    <section class="book">
+      <div class="container">
+        <h2>Saved Transactions</h2>
+        <table id="transactionTable">
+          <thead>
+            <tr>
+              <th>Hotel</th>
+              <th>Check-In Date</th>
+              <th>Check-Out Date</th>
+              <th>Number of Guests</th>
+            </tr>
+          </thead>
+          <tbody id="transactionTableBody">
+            <!-- Data will be inserted here dynamically -->
+          </tbody>
+        </table>
+      </div>  
+    </section>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <footer>
+      <div class="container grid">
+        <div class="box">
+          <img src="images/logo.png" alt="">
+          <p>IndoTravel, a top travel website, offers seamless hotel bookings and travel facilities for tourists in Indonesia. With diverse accommodation options, from luxury hotels to budget-friendly guesthouses, users can easily find and book their ideal stay. 
+            The platform extends beyond hotels, providing additional services like car rentals and local tours for comprehensive trip planning. Emphasizing security, IndoTravel collaborates with reputable partners and employs a secure payment system. With a dedicated customer service team, the platform ensures a smooth and unforgettable travel experience for visitors exploring Indonesia.</p>
+            <div class="icon">
+              <a href="https://www.facebook.com" target="_blank">
+                  <i class="fa fa-facebook-f"></i>
+              </a>
+              <a href="https://www.instagram.com" target="_blank">
+                  <i class="fa fa-instagram"></i>
+              </a>
+              <a href="https://twitter.com" target="_blank">
+                  <i class="fa fa-twitter"></i>
+              </a>
+              <a href="https://www.youtube.com" target="_blank">
+                  <i class="fa fa-youtube"></i>
+              </a>
+          </div>
+        </div>
+
+        <div class="box">
+    
+        </div>
+        
+        <div class="box">
+          <h2>Contact Us</h2>
+          <p>For more information contact us.
+          </p>
+          <i class="fa fa-location-dot"></i>
+          <label>Jl. Utama No. 123, Jakarta, Indonesia</label> <br>
+          <i class="fa fa-phone"></i>
+          <label>[+62] 123 4567 890</label> <br>
+          <i class="fa fa-envelope"></i>
+          <label>info@indotravel.com</label> <br>
+        </div>
+      </div>
+    </footer>
+
+    <div class="legal">
+      <p class="container">Copyright (c) 2023 IndoTravel All Rights Reserved.</p>
+    </div>
+    <!-- Your scripts -->
+    <script>
+        $(document).ready(function () {
+            // Function to handle hotel booking
+            function bookHotel(hotelName) {
+                // ... (existing code)
+
+                // Store booked data in localStorage
+                var bookedData = {
+                    hotelName: hotelName,
+                    checkInDate: checkInDate,
+                    checkOutDate: checkOutDate,
+                    guests: guests,
+                };
+
+                // Use an array to store multiple bookings
+                var bookedHotels = JSON.parse(localStorage.getItem("bookedHotels")) || [];
+                bookedHotels.push(bookedData);
+
+                localStorage.setItem("bookedHotels", JSON.stringify(bookedHotels));
+
+                // Display booked hotels immediately after booking
+                displayBookedHotels();
+            }
+
+            // Function to display booked hotel data
+            function displayBookedHotels() {
+                var bookedHotels = JSON.parse(localStorage.getItem("bookedHotels")) || [];
+
+                // Clear existing content in the container
+                $("#booked-hotels-container").empty();
+
+                // Loop through booked hotels and display information
+                bookedHotels.forEach(function (booking, index) {
+                    var container = $("<div class='booked-hotel'></div>");
+                    container.append("<h3>Booking #" + (index + 1) + "</h3>");
+                    container.append("<p><strong>Hotel:</strong> " + booking.hotelName + "</p>");
+                    container.append("<p><strong>Check-In Date:</strong> " + booking.checkInDate + "</p>");
+                    container.append("<p><strong>Check-Out Date:</strong> " + booking.checkOutDate + "</p>");
+                    container.append("<p><strong>Guests:</strong> " + booking.guests + "</p>");
+
+                    // Append the container to the page
+                    $("#booked-hotels-container").append(container);
+                });
+            }
+
+            // Attach event handlers to the book buttons
+            $(".book-btn").on("click", function () {
+                var hotelName = $(this).data("hotel");
+                bookHotel(hotelName);
+            });
+
+            // Display booked hotels on page load
+            displayBookedHotels();
+        });
+    </script>
+</body>
+</html>
